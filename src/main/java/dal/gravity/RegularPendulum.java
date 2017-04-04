@@ -11,9 +11,9 @@ public class RegularPendulum extends AbstractPendulum {
     /**
      * Creates a new Pendulum instance 
      */
-    public RegularPendulum (double inLength, double inMass, double inTheta0, 
+    public RegularPendulum (double inLength, double inMass, double inTheta0, GravityConstant jG, 
 		     double inDelta, double inDiss) {
-	super (inLength, inMass, inTheta0, GRAVITY);
+	super (inLength, inMass, inTheta0, jG);
 	delta=inDelta;
 	dissipation = inDiss;
 	lastVel = 0;
@@ -21,9 +21,9 @@ public class RegularPendulum extends AbstractPendulum {
 	lastAccel = -(this.getGravitationalField () / this.getStringLength ())*Math.sin (lastTheta);
     }
 
-    public RegularPendulum (double inLength, double inMass, double inTheta0, 
+    public RegularPendulum (double inLength, double inMass, double inTheta0, GravityConstant jG, 
 		     double inDelta) {
-	this (inLength, inMass, inTheta0, inDelta, 0);
+	this (inLength, inMass, inTheta0, jG, inDelta, 0);
     }
 
     public void step () {
