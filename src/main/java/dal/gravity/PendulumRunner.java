@@ -1,6 +1,7 @@
 package dal.gravity;
 
 import java.text.NumberFormat;
+import java.util.Scanner;
 
 /** 
  * compares the values of a simple pendulum using the harmonic motion equation
@@ -13,7 +14,9 @@ public class PendulumRunner {
 	NumberFormat nf = NumberFormat.getInstance ();
 	nf.setMaximumFractionDigits (3);
 
-	GravityConstant jEarthGravity = new GravityConstant(9.80665);
+	System.out.print("Enter Gravity Constant: ");
+	Scanner jInput = new Scanner(System.in);	
+	GravityConstant jEarthGravity = new GravityConstant(jInput.nextDouble()); 
 	double delta = (args.length == 0) ? .1 : Double.parseDouble (args[0]);
 	double sLen = 10, pMass = 10, theta0 = Math.PI/30;
 	RegularPendulum rp = new RegularPendulum (sLen, pMass, theta0, jEarthGravity, delta);
@@ -35,6 +38,9 @@ public class PendulumRunner {
 				+ "\t" + 
 				nf.format (Math.toDegrees (rpCoarse.getLastTheta ())));
 	}
+	jInput.close();
     }
+	
+	
 }
 
