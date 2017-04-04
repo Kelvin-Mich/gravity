@@ -9,6 +9,7 @@ public abstract class AbstractPendulum {
     /* instance variables - string length, point mass, angular displacement
      * at t=0, constant for local gravitational field in m/s^2 (e.g., 9.81 on Earth)
      */
+	public static final double GRAVITY = 9.80665;
     private double stringLength, pointMass;
     protected double theta0; 
     protected double g; 
